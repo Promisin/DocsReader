@@ -1,5 +1,6 @@
 package com.ypp.docsreader.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
@@ -12,14 +13,15 @@ import com.ypp.docsreader.model.cmd.JSCmdFactory
 import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : AppCompatActivity() {
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
-        val targetUrl = "https://www.kotlincn.net" + intent.getStringExtra("targetUrl")
+        val targetUrl = intent.getStringExtra("targetUrl")
         val type = intent.getStringExtra("type")
-        val cmd = JSCmdFactory.getCmdByType(type)
-        var loadingProgressBar: ContentLoadingProgressBar = findViewById(R.id.loading_pb)
-        var webView: WebView = findViewById(R.id.webView)
+        val cmd = JSCmdFactory.getCmdByType(type ?: "empty")
+        val loadingProgressBar: ContentLoadingProgressBar = findViewById(R.id.loading_pb)
+        val webView: WebView = findViewById(R.id.webView)
         webView.loadUrl(targetUrl)
         webView.settings.javaScriptEnabled = true
         webView.settings.useWideViewPort = true

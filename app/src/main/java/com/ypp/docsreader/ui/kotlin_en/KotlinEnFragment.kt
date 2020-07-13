@@ -1,4 +1,4 @@
-package com.ypp.docsreader.ui.kotlin
+package com.ypp.docsreader.ui.kotlin_en
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,21 +17,21 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 
-class KotlinFragment : ListFragment(), CoroutineScope by MainScope() {
-    private val KOTLIN_URL = "https://www.kotlincn.net/docs/reference/"
+class KotlinEnFragment : ListFragment(), CoroutineScope by MainScope() {
+    private val KOTLIN_URL = "https://kotlinlang.org/docs/reference/"
     private var nodes: ArrayList<MultiListItem> = arrayListOf()
     private lateinit var multiListAdapter: MultiListAdapter
 
-    private lateinit var kotlinViewModel: KotlinViewModel
+    private lateinit var kotlinEnViewModel: KotlinEnViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        kotlinViewModel =
-            ViewModelProviders.of(this).get(KotlinViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_kotlin, container, false)
+        kotlinEnViewModel =
+            ViewModelProviders.of(this).get(KotlinEnViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_kotlin_en, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +76,7 @@ class KotlinFragment : ListFragment(), CoroutineScope by MainScope() {
             multiListAdapter.filterList()
         } else {
             val intent = Intent(context, WebViewActivity::class.java)
-            intent.putExtra("targetUrl", "https://www.kotlincn.net" + item.target)
+            intent.putExtra("targetUrl", "https://kotlinlang.org" + item.target)
             intent.putExtra("type", "kotlin")
             startActivity(intent)
         }

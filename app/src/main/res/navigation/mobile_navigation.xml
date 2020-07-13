@@ -30,14 +30,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.ypp.docsreader.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_kotlin_en"
+        android:name="com.ypp.docsreader.ui.kotlin_en.KotlinEnFragment"
+        android:label="@string/menu_kotlin_en"
+        tools:layout="@layout/fragment_kotlin_en" />
 
     <fragment
         android:id="@+id/nav_kotlin"
         android:name="com.ypp.docsreader.ui.kotlin.KotlinFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_kotlin"
         tools:layout="@layout/fragment_kotlin" />
 </navigation>
