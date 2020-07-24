@@ -41,5 +41,7 @@ class MultiListItem {
         this.target = target
     }
 
-
+    fun hasChildren(): Boolean {
+        return this.children.size > 0
+    }
 }

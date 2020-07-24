@@ -59,11 +59,11 @@ class KotlinEnFragment : ListFragment(), CoroutineScope by MainScope() {
                         )
                     )
                 }
-                withContext(Dispatchers.Main) {
-                    multiListAdapter =
-                        context?.let { MultiListAdapter(it, R.layout.multi_list_item, nodes) }!!
-                    listAdapter = multiListAdapter
-                }
+            }
+            withContext(Dispatchers.Main) {
+                multiListAdapter =
+                    context?.let { MultiListAdapter(it, R.layout.multi_list_item, nodes) }!!
+                listAdapter = multiListAdapter
             }
         }
     }

@@ -16,5 +16,9 @@
             android:id="@+id/nav_kotlin_en"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_kotlin_en" />
+        <item
+            android:id="@+id/nav_java"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_java" />
     </group>
 </menu>

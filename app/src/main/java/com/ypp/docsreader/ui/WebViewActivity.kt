@@ -1,6 +1,7 @@
 package com.ypp.docsreader.ui
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
@@ -8,6 +9,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.ContentLoadingProgressBar
+import androidx.preference.PreferenceManager
 import com.ypp.docsreader.R
 import com.ypp.docsreader.model.cmd.JSCmdFactory
 import kotlinx.android.synthetic.main.activity_web_view.*
@@ -47,5 +49,15 @@ class WebViewActivity : AppCompatActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sp = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        requestedOrientation = if (sp.getBoolean(
+                "web_rotate",
+                false
+            )
+        ) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 }
