@@ -65,7 +65,7 @@ class MultiListAdapter(
         for (item in itemList) {
             filteredList.add(item)
             if (item.isChecked) {
-                filteredList.addAll(itemList.indexOf(item) + 1, item.children)
+                filteredList.addAll(item.children)
             }
         }
         notifyDataSetChanged()

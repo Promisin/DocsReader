@@ -67,36 +67,6 @@ class JavaFragment : Fragment(), CoroutineScope by MainScope() {
                     startActivity(intent)
                 }
             }
-//        listView.setOnScrollListener(object : AbsListView.OnScrollListener {
-//            override fun onScroll(
-//                view: AbsListView?,
-//                firstVisibleItem: Int,
-//                visibleItemCount: Int,
-//                totalItemCount: Int
-//            ) {
-//                if (firstVisibleItem != 0 && visibleNodes.size<cacheNodes.size) {
-//                    if (firstVisibleItem + visibleItemCount > totalItemCount - 2) {
-//                        if (totalItemCount < cacheNodes.size - 20) {
-//                            visibleNodes.addAll(
-//                                cacheNodes.subList(
-//                                    totalItemCount,
-//                                    totalItemCount + 20
-//                                )
-//                            )
-//                        }
-//                        else{
-//                            visibleNodes.addAll(cacheNodes.subList(totalItemCount, cacheNodes.size))
-//                        }
-//                        multiListAdapter.filterList()
-//                    }
-//                }
-//            }
-//
-//            override fun onScrollStateChanged(view: AbsListView?, scrollState: Int) {
-//
-//            }
-//
-//        })
         val llSearch = root.findViewById<LinearLayout>(R.id.ll_search)
         val buttonCancel = root.findViewById<Button>(R.id.btn_cancel)
         buttonCancel.setOnClickListener {

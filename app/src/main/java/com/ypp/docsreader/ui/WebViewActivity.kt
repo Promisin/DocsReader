@@ -21,12 +21,13 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_web_view)
         val targetUrl = intent.getStringExtra("targetUrl")
         val type = intent.getStringExtra("type")
+        title = type
         val cmd = JSCmdFactory.getCmdByType(type ?: "empty")
         val loadingProgressBar: ContentLoadingProgressBar = findViewById(R.id.loading_pb)
         val webView: WebView = findViewById(R.id.webView)
         webView.loadUrl(targetUrl)
         webView.settings.javaScriptEnabled = true
-        webView.settings.useWideViewPort = true
+        //webView.settings.useWideViewPort = true
         webView.settings.loadWithOverviewMode = true
         webView.settings.setSupportZoom(true)
         webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
@@ -35,7 +36,7 @@ class WebViewActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 webView.loadUrl(cmd.hideOthers)
-                webView.loadUrl(cmd.executeHide)
+                webView.loadUrl(cmd.resize)
                 loadingProgressBar.hide()
                 Thread.sleep(500)
                 webView.visibility = View.VISIBLE
